@@ -47,15 +47,15 @@ jobs:
             experimental: true
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
+      - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e
+      - uses: actions/cache@8492260343ad570701412c2f464a5877dc76bace
         with:
           path: /home/runner/bundle
           key: bundle-use-ruby-${{ matrix.ruby }}-${{ matrix.gemfile }}-gems-${{ hashFiles(matrix.gemfile) }}-${{ hashFiles('**/*.gemspec') }}
           restore-keys: |
             bundle-use-ruby-${{ matrix.ruby }}-${{ matrix.gemfile }}-gems-
 
-      - uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b
         with:
           ruby-version: ${{ matrix.ruby }}
 
